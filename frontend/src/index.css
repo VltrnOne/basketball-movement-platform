@@ -6,11 +6,15 @@
   html {
     font-family: 'Inter', system-ui, sans-serif;
   }
+  
+  body {
+    @apply bg-brand-dark text-gray-100;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-basketball-orange hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply bg-brand-orange hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
   }
   
   .btn-secondary {
