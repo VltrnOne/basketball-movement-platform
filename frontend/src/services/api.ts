@@ -1,5 +1,8 @@
 import { supabase } from '../config/supabase'
-import { Database } from '../config/supabase'
+import type { Database } from '../config/supabase'
+
+// Base URL for backend API (used for non-Supabase endpoints)
+export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
 
 type Tables = Database['public']['Tables']
 
@@ -159,7 +162,7 @@ export class BasketballAPI {
     const fileName = `${sessionId}.${fileExt}`
     const filePath = `videos/${fileName}`
 
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from('basketball-videos')
       .upload(filePath, file)
 

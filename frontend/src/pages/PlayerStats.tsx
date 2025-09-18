@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BarChart3, TrendingUp, Clock, MapPin, Zap, Jump } from 'lucide-react'
+import { BarChart3, TrendingUp, Clock, MapPin, Zap, Activity } from 'lucide-react'
 
 const PlayerStats: React.FC = () => {
   const [selectedPlayer, setSelectedPlayer] = useState('player1')
@@ -71,7 +71,7 @@ const PlayerStats: React.FC = () => {
     {
       label: 'Jump Count',
       value: currentStats.jumpCount.toString(),
-      icon: Jump,
+      icon: Activity,
       color: 'text-purple-600',
       bgColor: 'bg-purple-100',
     },

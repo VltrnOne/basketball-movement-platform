@@ -41,7 +41,7 @@ Key scenarios:
 
 ## 5. High-Level Architecture
 1. **Capture & Ingestion Layer**
-   - Live: WebRTC stream from client to ingest server (e.g., [LiveKit](https://github.com/livekit/livekit) or [Jellyfin WebRTC ingest](https://github.com/jellyfin/jellyfin)).
+   - Live: WebRTC stream from client to ingest server (e.g., [LiveKit](yhttps://github.com/livekit/livekit) or [Jellyfin WebRTC ingest](https://github.com/jellyfin/jellyfin)).
    - Uploads: Signed URL to object storage (Supabase Storage, MinIO, or S3-compatible bucket).
 2. **API Gateway & Orchestration**
    - REST/gRPC APIs built with FastAPI or Node (NestJS) for session management, job creation, auth (Supabase Auth or Keycloak).
