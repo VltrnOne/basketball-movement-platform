@@ -4,11 +4,11 @@ import Card from '../components/ui/Card';
 
 const Login = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-900">
+    <div className="flex items-center justify-center min-h-screen bg-brand-dark">
       <Card className="w-full max-w-md p-8 space-y-6">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-white">
-             <span className="text-orange-500">B-Ball</span> AI
+             <span className="text-brand-orange">B-Ball</span> AI
           </h1>
           <p className="mt-2 text-gray-400">Sign in to access your dashboard</p>
         </div>
@@ -21,7 +21,7 @@ const Login = () => {
               type="email"
               autoComplete="email"
               required
-              className="mt-2 block w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+              className="mt-2 block w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-brand-orange focus:border-brand-orange"
               placeholder="you@example.com"
             />
           </div>
@@ -33,7 +33,7 @@ const Login = () => {
               type="password"
               autoComplete="current-password"
               required
-              className="mt-2 block w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+              className="mt-2 block w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-brand-orange focus:border-brand-orange"
               placeholder="••••••••"
             />
           </div>
@@ -47,7 +47,7 @@ const Login = () => {
         </form>
          <p className="text-center text-sm text-gray-400">
             Don't have an account?{' '}
-            <Link to="#" className="font-medium text-orange-500 hover:underline">
+            <Link to="#" className="font-medium text-brand-orange hover:underline">
                 Sign up
             </Link>
         </p>
