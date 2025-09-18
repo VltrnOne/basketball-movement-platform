@@ -1,43 +1,79 @@
-import React from 'react';
+import { useState } from 'react';
 import { Play, Upload, Calendar, Clock } from 'lucide-react';
 import Card from '../components/ui/Card';
+import VideoUpload from '../components/VideoUpload';
+import VideoAnalysis from '../components/VideoAnalysis';
 
 const Sessions = () => {
+  const [showUpload, setShowUpload] = useState(false);
+  const [currentVideoId, setCurrentVideoId] = useState<string | null>(null);
+  const [currentSafeFilename, setCurrentSafeFilename] = useState<string | null>(null);
+  const [showAnalysis, setShowAnalysis] = useState(false);
+
+  const handleUploadSuccess = (videoId: string, safeFilename: string) => {
+    setCurrentVideoId(videoId);
+    setCurrentSafeFilename(safeFilename);
+    setShowAnalysis(true);
+    setShowUpload(false);
+  };
+
   return (
     <div className="space-y-8">
       {/* Header */}
       <div className="flex justify-between items-center">
         <h2 className="text-3xl font-bold text-white">Sessions</h2>
-        <button className="bg-brand-orange hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold transition-colors">
-          New Session
-        </button>
+        <div className="flex space-x-3">
+          <button 
+            onClick={() => setShowUpload(true)}
+            className="bg-brand-orange hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+          >
+            Upload Video
+          </button>
+          <button className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-lg font-semibold transition-colors">
+            New Session
+          </button>
+        </div>
       </div>
+
+      {/* Video Upload Section */}
+      {showUpload && (
+        <VideoUpload onUploadSuccess={handleUploadSuccess} />
+      )}
+
+      {/* Video Analysis Section */}
+      {showAnalysis && currentVideoId && (
+        <VideoAnalysis videoId={currentVideoId} safeFilename={currentSafeFilename} />
+      )}
 
       {/* Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Card hover className="p-6">
-          <div className="flex items-center space-x-4">
-            <div className="bg-brand-orange/20 p-3 rounded-full">
-              <Play size={24} className="text-brand-orange" />
+        <div className="cursor-pointer" onClick={() => setShowUpload(true)}>
+          <Card className="p-6 hover:bg-gray-800 transition-colors">
+            <div className="flex items-center space-x-4">
+              <div className="bg-brand-orange/20 p-3 rounded-full">
+                <Play size={24} className="text-brand-orange" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white">Start Live Session</h3>
+                <p className="text-gray-400 text-sm">Begin real-time analysis</p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-white">Start Live Session</h3>
-              <p className="text-gray-400 text-sm">Begin real-time analysis</p>
-            </div>
-          </div>
-        </Card>
+          </Card>
+        </div>
 
-        <Card hover className="p-6">
-          <div className="flex items-center space-x-4">
-            <div className="bg-brand-orange/20 p-3 rounded-full">
-              <Upload size={24} className="text-brand-orange" />
+        <div className="cursor-pointer" onClick={() => setShowUpload(true)}>
+          <Card className="p-6 hover:bg-gray-800 transition-colors">
+            <div className="flex items-center space-x-4">
+              <div className="bg-brand-orange/20 p-3 rounded-full">
+                <Upload size={24} className="text-brand-orange" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white">Upload Video</h3>
+                <p className="text-gray-400 text-sm">Analyze recorded footage</p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-white">Upload Video</h3>
-              <p className="text-gray-400 text-sm">Analyze recorded footage</p>
-            </div>
-          </div>
-        </Card>
+          </Card>
+        </div>
       </div>
 
       {/* Recent Sessions */}

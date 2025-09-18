@@ -1,0 +1,35 @@
+{
+  "video_id": "be6ebcde-75e5-428d-96cd-5ac3bde0cf87",
+  "status": "completed",
+  "total_frames": 0,
+  "processed_frames": 0,
+  "pose_landmarks": [],
+  "basketball_metrics": {
+    "total_distance_covered": 0.0,
+    "average_speed": 0.0,
+    "max_speed": 0.0,
+    "high_intensity_sprints": 0,
+    "court_coverage_percentage": 0.0,
+    "movement_efficiency": 0.0,
+    "court_zone_distribution": {
+      "paint": 0,
+      "mid_range": 0,
+      "three_point": 0,
+      "baseline": 0
+    },
+    "paint_time_percentage": 0.0,
+    "three_point_time_percentage": 0.0,
+    "acceleration_events": 0,
+    "direction_changes": 0
+  },
+  "analysis_metadata": {
+    "model_version": "mediapipe_pose",
+    "analysis_duration": 0,
+    "court_dimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "fps": 0.0,
+    "pose_detection_rate": 0
+  }
+}
