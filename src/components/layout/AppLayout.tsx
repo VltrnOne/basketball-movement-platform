@@ -1,8 +1,11 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
 import { LayoutDashboard, Video, BarChart3, Settings } from 'lucide-react';
 
-const AppLayout = () => {
+interface AppLayoutProps {
+  children: React.ReactNode;
+}
+
+const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   return (
     <div className="flex h-screen bg-brand-dark">
       {/* Sidebar Navigation */}
@@ -11,10 +14,10 @@ const AppLayout = () => {
           <span className="text-brand-orange">B-Ball</span> AI
         </div>
         <nav className="flex-1 px-4 py-6 space-y-2">
-          <NavItem icon={<LayoutDashboard size={20} />} to="/">Dashboard</NavItem>
-          <NavItem icon={<Video size={20} />} to="/sessions">Sessions</NavItem>
-          <NavItem icon={<BarChart3 size={20} />} to="/analytics">Analytics</NavItem>
-          <NavItem icon={<Settings size={20} />} to="/settings">Settings</NavItem>
+          <NavItem icon={<LayoutDashboard size={20} />} active={true}>Dashboard</NavItem>
+          <NavItem icon={<Video size={20} />} active={false}>Sessions</NavItem>
+          <NavItem icon={<BarChart3 size={20} />} active={false}>Analytics</NavItem>
+          <NavItem icon={<Settings size={20} />} active={false}>Settings</NavItem>
         </nav>
         <div className="p-4 border-t border-gray-700">
           {/* User Profile Section */}
@@ -34,7 +37,7 @@ const AppLayout = () => {
           <h1 className="text-2xl font-semibold text-white">Dashboard</h1>
         </header>
         <div className="flex-1 p-6 overflow-y-auto">
-          <Outlet /> {/* Child routes will render here */}
+          {children}
         </div>
       </main>
     </div>
@@ -42,23 +45,19 @@ const AppLayout = () => {
 };
 
 // Helper component for navigation items
-const NavItem = ({ icon, to, children }: { icon: React.ReactNode; to: string; children: React.ReactNode }) => {
+const NavItem = ({ icon, active, children }: { icon: React.ReactNode; active: boolean; children: React.ReactNode }) => {
   const activeClass = "bg-brand-orange text-white";
   const inactiveClass = "text-gray-300 hover:bg-gray-700 hover:text-white";
 
   return (
-    <NavLink
-      to={to}
-      end
-      className={({ isActive }) =>
-        `flex items-center px-4 py-2.5 rounded-lg transition-colors duration-200 ${
-          isActive ? activeClass : inactiveClass
-        }`
-      }
+    <div
+      className={`flex items-center px-4 py-2.5 rounded-lg transition-colors duration-200 ${
+        active ? activeClass : inactiveClass
+      }`}
     >
       {icon}
       <span className="ml-4 font-medium">{children}</span>
-    </NavLink>
+    </div>
   );
 };
 
