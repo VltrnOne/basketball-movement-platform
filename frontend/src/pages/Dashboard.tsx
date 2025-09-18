@@ -6,7 +6,7 @@ const Dashboard = () => {
   return (
     <div className="space-y-8">
       {/* Hero Section */}
-      <div className="p-8 rounded-xl bg-gradient-to-r from-brand-orange to-orange-500 text-white shadow-lg">
+      <div className="p-8 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg">
         <h2 className="text-3xl font-bold">Welcome Back, Coach!</h2>
         <p className="mt-2 text-orange-100">Ready to analyze the next big game? Let's get started.</p>
       </div>
@@ -46,7 +46,7 @@ const ActionCard = ({ icon, title, description }: {
   description: string; 
 }) => (
   <Card hover className="p-6 flex items-center space-x-6">
-    <div className="bg-brand-orange/20 p-4 rounded-full text-brand-orange">
+    <div className="bg-orange-500/20 p-4 rounded-full text-orange-500">
       {icon}
     </div>
     <div className="flex-1">

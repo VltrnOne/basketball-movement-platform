@@ -4,11 +4,11 @@ import { LayoutDashboard, Video, BarChart3, Settings } from 'lucide-react';
 
 const AppLayout = () => {
   return (
-    <div className="flex h-screen bg-brand-dark">
+    <div className="flex h-screen bg-gray-900">
       {/* Sidebar Navigation */}
       <aside className="w-64 bg-gray-900 text-white flex flex-col">
         <div className="p-6 text-2xl font-bold border-b border-gray-700">
-          <span className="text-brand-orange">B-Ball</span> AI
+          <span className="text-orange-500">B-Ball</span> AI
         </div>
         <nav className="flex-1 px-4 py-6 space-y-2">
           <NavItem icon={<LayoutDashboard size={20} />} to="/">Dashboard</NavItem>
@@ -43,7 +43,7 @@ const AppLayout = () => {
 
 // Helper component for navigation items
 const NavItem = ({ icon, to, children }: { icon: React.ReactNode; to: string; children: React.ReactNode }) => {
-  const activeClass = "bg-brand-orange text-white";
+  const activeClass = "bg-orange-500 text-white";
   const inactiveClass = "text-gray-300 hover:bg-gray-700 hover:text-white";
 
   return (
