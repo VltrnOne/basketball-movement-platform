@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import AppLayout from './components/layout/AppLayout';
 import Dashboard from './pages/Dashboard';
 import Sessions from './pages/Sessions';
@@ -15,6 +15,8 @@ function App() {
         <Route path="/sessions" element={<Sessions />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/settings" element={<Settings />} />
+        {/* Catch-all route for any unmatched paths */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
 
       {/* Standalone routes (like login, signup) */}
